@@ -9,12 +9,24 @@ export const load: LayoutServerLoad = () => {
         href: '/'
       },
       {
-        label: 'Tic Tac Toe',
+        label: 'Morpion',
         href: '/tictactoe'
       },
       {
         label: 'Memory',
         href: '/memory'
+      },
+      {
+        label: 'Juste Nombre',
+        href: '/rightnumber'
+      },
+      {
+        label: 'Pendu',
+        href: '/pendu'
+      },
+      {
+        label: '2048',
+        href: '/2048'
       }
     ] as Nav[]
   };

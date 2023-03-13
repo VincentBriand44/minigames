@@ -3,24 +3,25 @@
 
   let cells: string[] = [
     'A',
-    'E',
+    'A',
+    'B',
     'B',
     'C',
+    'C',
     'D',
-    'H',
+    'D',
+    'E',
+    'E',
+    'F',
     'F',
     'G',
-    'A',
     'G',
-    'D',
-    'C',
-    'B',
     'H',
-    'E',
-    'F'
+    'H'
   ]; // random
   let isWin = false;
   let isLoose = false;
+  let maxTry = 5;
 
   let firstClick: number | undefined = undefined;
   let secondClick: number | undefined = undefined;
@@ -45,11 +46,15 @@
         }
       } else {
         erreur++;
-        if (erreur >= 5) {
+        if (erreur >= maxTry) {
           isLoose = true;
         }
       }
     }
+  };
+
+  const random = () => {
+    cells = cells.sort(() => Math.random() - 0.5);
   };
 
   const winner = () => {
@@ -63,13 +68,18 @@
     isWin = false;
     isLoose = false;
     erreur = 0;
+    random();
   };
+
+  random();
 </script>
 
 <div class="flex flex-col items-center">
   <div class="relative">
     <WinPopup isWin={isWin || isLoose} player status={isWin} />
-    <p class="text-center font-bold mb-4">Nombre d'erreur : {erreur}</p>
+    <p class="text-center font-bold mb-4">
+      Nombre d'erreur: {erreur} / {maxTry}
+    </p>
     <div class="grid grid-cols-4 grid-rows-4 gap-3 sm:gap-6 text-center">
       {#each cells as cell, index}
         <button
