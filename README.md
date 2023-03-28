@@ -1,6 +1,6 @@
-# TicTacToe by Vincent BRIAND
+# MiniGames by Vincent BRIAND
 
-Best tic tac toe game ever =p
+My training project for svelte =p
 
 ## Author
 
