@@ -11,7 +11,8 @@
 
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === 'Enter') {
-      let value = parseInt(event.target?.value);
+      let target = event.target as HTMLInputElement;
+      let value = parseInt(target.value);
       if (value === result) {
         winner();
       } else {
@@ -34,12 +35,9 @@
     result = Math.floor(Math.random() * 100) + 1;
   };
 
-  const winner = () => {
-    isWin = true;
-  };
+  const winner = () => (isWin = true);
 
   const reset = () => {
-    console.log(result);
     isWin = false;
     isLoose = false;
     erreur = 0;
